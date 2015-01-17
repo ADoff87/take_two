@@ -1,0 +1,35 @@
+/* Nav */
+
+.topnav {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	padding: 5px;
+	background-color: #efefef;
+	text-align: right;
+	z-index: 25;
+}
+
+.topnav ul {
+	list-style: outside none;
+	margin: 0 20px 0 0;
+}
+
+.topnav li {
+	margin-right: 10px;
+	display: inline;
+}
+
+.topnav a, .topnav a:visited {
+	font-family: arial, sans-serif;
+	font-size: 60%;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #999;
+}
+
+.topnav a:hover {
+	color: black;
+}
