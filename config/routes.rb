@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get ':controller/:action'
+  get 'portfolio/' => 'portfolio#index', as: :portfolio_root
+  get 'shop/' => 'portfolio#index', as: :shop_root
+
+  root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
