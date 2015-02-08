@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 
-*ignore db yml files
+# ignore db yml files
 /config/database.yml
