@@ -1,0 +1,42 @@
+// Place all the styles related to the Project controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.col-1, .col-2, .col-3 {
+	float: left;
+	width: 27%;
+	padding: 2%;
+	border: 1px solid #efeeef;
+	margin: 0 2% 2% 0;
+}
+
+.col-1 img, .col-2 img, .col-3 img {
+	width: 100%;
+	margin-bottom: 2%;
+}
+
+.col-3 {
+	clear: right;
+}
+
+.col-1 a, .col-2 a, .col-3 a {
+	font-size: 90%;
+	font-family: 'Roboto Slab', serif;
+	text-transform: capitalize;
+	letter-spacing: 2px;
+	color: #444;
+	text-align: center;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+	.col-1,
+	.col-2,
+	.col-3 {
+		clear: both;
+		width: 90%;
+		padding: 4%;
+		margin-bottom: 4%
+    }
+}
+

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get ':controller/:action'
-  get 'portfolio/' => 'portfolio#index', as: :portfolio_root
-  get 'shop/' => 'portfolio#index', as: :shop_root
+  #get ':controller(/:action)'
+  get 'Project/:id' => 'project#show', as: :project
+  get 'project/' => 'project#index', as: :portfolio_root
+  get 'shop/' => 'shop#index', as: :shop_root
 
   root 'welcome#index'
 

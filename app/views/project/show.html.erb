@@ -1,0 +1,36 @@
+<div>
+	<h1><%= @project.project_title %></h1>
+
+			<div class="left-column">
+
+				<h2>Secondary Title</h2>
+				<p>
+					<%= @project.main_description %>
+				</p>
+				<p>
+					<%= @project.secondary_description %>
+				</p>
+			</div><!-- end left column -->
+
+			<div class="right-column">
+				<% @project.project_items.each do |p|  %>
+				<img src="<%= p.image_url %>" />
+				<p class="caption">  
+					<%= p.image_caption  %>
+				</p>
+
+				<% end %>
+			</div>
+	<!-- 		<div class="right-column">
+
+				<img src="images/dahlias.png" />
+
+				<p class="caption">This is a caption to describe this image of my Dahlias pattern.</p>
+
+				<img src="images/dahlias.png" />
+				<img src="images/dahlias.png" />
+
+			</div> -->
+
+			<!--start gallery -->
+</div>

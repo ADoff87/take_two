@@ -1,0 +1,22 @@
+<div>
+	<h1>Drawings Gallery - this is dynamically created</h1>
+
+	<div>
+
+	<% @project_groups.each do |g|%>
+	<div class="cf">
+		<h3> <%= g[:p_type] %></h3>
+		 <% g[:projects].each_with_index do |proj, i| %>
+			<% col_idx = "col-" + ((i % 3) + 1).to_s %> 
+			<div class="<%= col_idx %>">
+				<a href="<%= project_url(proj.id)  %>"><img  src="<%= proj.project_items.where(is_main_image: true).first.image_url  %>" /></a>
+				<a href="<%= project_url(proj.id)  %>"><%= proj.project_title %></a>
+			</div>
+		<% end %>
+	</div>
+	<% end %>
+
+
+	</div>
+
+</div>
