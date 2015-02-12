@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150202011352) do
     t.integer  "project_id"
   end
 
-  add_index "project_items", ["project_id"], name: "index_project_items_on_project_id", using: :btree
+  add_index "project_items", ["project_id"], name: "index_project_items_on_project_id"
 
   create_table "projects", force: true do |t|
     t.string   "project_title"
