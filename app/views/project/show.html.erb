@@ -2,15 +2,9 @@
 	<h1><%= @project.project_title %></h1>
 
 			<div class="left-column">
-
-				<h2>Secondary Title</h2>
-				<p>
-					<%= @project.main_description %>
-				</p>
-				<p>
-					<%= @project.secondary_description %>
-				</p>
-			</div><!-- end left column -->
+				<%= markdownToHtml(@project.project_markdown) %>
+				
+			</div>
 
 			<div class="right-column">
 				<% @project.project_items.each do |p|  %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'project/:id' => 'project#show', as: :project
   get 'project/' => 'project#index', as: :portfolio_root
   get 'shop/' => 'shop#index', as: :shop_root
+  get 'admin/project/:id' => 'project#edit'
 
   get ':controller/:action'
 

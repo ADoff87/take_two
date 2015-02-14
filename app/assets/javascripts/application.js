@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require knockout/dist/knockout.debug
+//= require markdown/lib/markdown
