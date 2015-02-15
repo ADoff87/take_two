@@ -1,17 +1,47 @@
 class ProjectController < ApplicationController
-	before_action :authenticate_admin, only:[:edit,:create]
-	before_action :find_project, only:[:edit,:show]
+	before_action :authenticate_admin, only:[:edit,:create,:update,:delete,:new]
+	before_action :find_project, only:[:edit,:show, :update]
 
-	#return json only, state handled in knockout
+#admin resources
 	def edit
-		puts @project.to_json
-		render json: @project #include collections using jBuilder
+		render_to_string(formats: 'json')
 	end
+
+	def new
+		@project = Project.new
+		@project_types = Project.project_types
+		render_to_string(formats: 'json')
+	end
+
 	#return json only, state handled in knockout
 	def create
+		@project = Project.new(project_params)
+		
+		if @project.save
+			render json: id: @template.id, status: :created
+		else
+			render json: @project.errors, status: :unprocessable_entity
+		end
+	end
+
+
+	def update
+		if @project.update(project_params) 
+			render status: 'updated'
+		else
+			render json: @project.errors, status: :unprocessable_entity
+		end
+	end
+
+	def delete
 
 	end
 
+
+#public methods
+	def show
+		
+	end
 
 	def index
 		@project_groups = Project.order(:sort_order)
@@ -21,10 +51,6 @@ class ProjectController < ApplicationController
 								 end 
 		
 		puts @project_groups
-	end
-
-	def show
-
 	end
 
 	private
@@ -37,5 +63,9 @@ class ProjectController < ApplicationController
 	def find_project
 		id = params[:id]
 		@project = Project.find(id)
+	end
+
+	def project_params
+		params[:project]
 	end
 end
