@@ -5,3 +5,4 @@ class UpdateProjectWithHtmlField < ActiveRecord::Migration
 		t.text :project_markdown
 	end
 end
+end

@@ -3,6 +3,7 @@ class ProjectController < ApplicationController
 	before_action :find_project, only:[:edit,:show, :update]
 
 #admin resources
+=begin
 	def edit
 		render_to_string(formats: 'json')
 	end
@@ -36,6 +37,8 @@ class ProjectController < ApplicationController
 	def delete
 
 	end
+=end
+
 
 
 #public methods

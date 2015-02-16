@@ -9,9 +9,13 @@
 			<div class="right-column">
 				<% @project.project_items.each do |p|  %>
 				<img src="<%= p.image_url %>" />
-				<p class="caption">  
-					<%= p.image_caption  %>
-				</p>
+
+					<% unless p.image_caption.nil? %>
+						<p class="caption">  
+							<%= p.image_caption  %>
+						</p>
+
+					<% end %>
 
 				<% end %>
 			</div>
