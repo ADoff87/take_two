@@ -30,6 +30,18 @@ gem 'spring',        group: :development
 gem 'tzinfo-data'
 gem 'redcarpet'
 
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'factory_girl_rails'
+end
+
+group :test do
+	gem 'faker'
+	gem 'capybara'
+	gem 'guard-rspec'
+	gem 'launchy'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
