@@ -9,7 +9,7 @@
 		 <% g[:projects].each_with_index do |proj, i| %>
 			<% col_idx = "col-" + ((i % 3) + 1).to_s %> 
 			<div class="<%= col_idx %>">
-				<a href="<%= project_url(proj.id)  %>"><img  src="<%= proj.project_items.where(is_main_image: true).first.get_image_url  %>" /></a>
+				<a href="<%= project_url(proj.id)  %>"><img  src="<%= proj.project_items.where(is_main_image: true).first.get_thumb_image  %>" /></a>
 				<a href="<%= project_url(proj.id)  %>"><%= proj.project_title %></a>
 			</div>
 		<% end %>

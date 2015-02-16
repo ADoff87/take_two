@@ -33,7 +33,6 @@ gem 'redcarpet'
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
-#this is just a test
 end
 
 group :test do
