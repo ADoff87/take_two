@@ -3,7 +3,7 @@ class ProjectController < ApplicationController
 	before_action :find_project, only:[:edit,:show, :update]
 
 #admin resources
-=begin
+
 	def edit
 		render_to_string(formats: 'json')
 	end
@@ -15,6 +15,7 @@ class ProjectController < ApplicationController
 	end
 
 	#return json only, state handled in knockout
+=begin
 	def create
 		@project = Project.new(project_params)
 		
@@ -24,6 +25,7 @@ class ProjectController < ApplicationController
 			render json: @project.errors, status: :unprocessable_entity
 		end
 	end
+=end
 
 
 	def update
@@ -37,13 +39,13 @@ class ProjectController < ApplicationController
 	def delete
 
 	end
-=end
+
 
 
 
 #public methods
 	def show
-		
+		redirect '/welcome/notfound' if @project.nil?
 	end
 
 	def index
