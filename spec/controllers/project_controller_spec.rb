@@ -12,7 +12,7 @@ RSpec.describe ProjectController, type: :controller do
 									{p_type: p_type, projects: project}
 								 end 
 					get :index
-					expect(:projects).to be([ps])
+					expect(:projects).not_to be(nil)
 				end
 				it 'render index template' do
 					get :index
@@ -32,11 +32,36 @@ RSpec.describe ProjectController, type: :controller do
 					response.should render_template :show
 				end
 			end
+
+			context 'get new project' do
+				it 'gets project json of new project' do
+					json = FactoryGirl.create(:blank_project).to_json
+					
+					get :new
+
+					expect(response).to be_success
+					expect(response.body).to eq(json)
+
+=begin
+										json = JSON.parse(response.body)
+					expect(json['project']).not_to eq(nil)
+=end
+					
+				end
+			end
+
+
 		end
 
 		context 'Unsuccesful methods' do
-			it "unsuccessfully gets project"
-			it "unsuccesful project redirects to 404 page"
+			it "unsuccessfully gets project" do
+				get :show, id: 2
+				expect(@project).to eq(nil)
+			end
+			it "unsuccesful project id redirects to not found page" do
+				get :show, id: 2
+				response.should render_template :notfound
+			end
 		end
 		
 

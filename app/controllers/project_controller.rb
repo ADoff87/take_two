@@ -1,10 +1,11 @@
 class ProjectController < ApplicationController
 	before_action :authenticate_admin, only:[:edit,:create,:update,:delete,:new]
-	before_action :find_project, only:[:edit,:show, :update]
+	before_action :find_project, only:[:edit,:show,:delete]
 
 #admin resources
 
 	def edit
+		puts 'im here!'
 		render_to_string(formats: 'json')
 	end
 
@@ -14,18 +15,16 @@ class ProjectController < ApplicationController
 		render_to_string(formats: 'json')
 	end
 
-	#return json only, state handled in knockout
-=begin
 	def create
 		@project = Project.new(project_params)
 		
 		if @project.save
-			render json: id: @template.id, status: :created
+			render json: {id: @project.id, status: :created}
 		else
-			render json: @project.errors, status: :unprocessable_entity
+			render json: {errors: @project.errors, status: :unprocessable_entity}
 		end
 	end
-=end
+
 
 
 	def update
@@ -37,15 +36,12 @@ class ProjectController < ApplicationController
 	end
 
 	def delete
-
+		
 	end
-
-
-
 
 #public methods
 	def show
-		redirect '/welcome/notfound' if @project.nil?
+		
 	end
 
 	def index
@@ -67,7 +63,12 @@ class ProjectController < ApplicationController
 
 	def find_project
 		id = params[:id]
-		@project = Project.find(id)
+		@project = Project.find_by_id id
+
+		respond_to do |format|
+			format.html {render('welcome/notfound')}
+			format.json {render json: {error: "not-found"}.to_json, status: 404}
+		end if @project.nil?
 	end
 
 	def project_params

@@ -6,4 +6,8 @@ class WelcomeController < ApplicationController
   def about
 
   end
+
+  def notfound
+
+  end
 end

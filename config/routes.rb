@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'project/' => 'project#index', as: :portfolio_root
   get 'shop/' => 'shop#index', as: :shop_root
   get 'admin/project/:action' => 'project#:action'
-  get 'admin/project/edit/:id' => 'project#edit'
+  get 'admin/project/edit/:id '=> 'project#:action'
+  put 'admin/project/update' => 'project#update'
 
 
   get ':controller/:action'

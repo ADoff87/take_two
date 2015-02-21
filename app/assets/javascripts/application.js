@@ -16,3 +16,4 @@
 //= require_tree .
 //= require knockout/dist/knockout.debug
 //= require markdown/lib/markdown
+//= require knockout-mapping/knockout.mapping
