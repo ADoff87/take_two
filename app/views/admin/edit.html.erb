@@ -1,0 +1,12 @@
+<script>
+var projId = <%= @id %>
+var pm = new gNs.projectManager();
+
+pm.getAndBindExistingProject(projId);
+</script>
+<div class="edit-form">
+	<label for="projectName">Project Name</label>
+	<input type="text" data-bind="value: $data.project.project_name" />
+</div>
+<div class="project-preview">
+</div>

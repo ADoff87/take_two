@@ -29,6 +29,28 @@
 	text-decoration: none;
 }
 
+
+div.project{
+	position: relative;
+}
+
+	 div.project:hover .edit-tag {
+		display: block;
+	}
+
+
+.edit-tag {
+	display: none;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 15px;
+	width: 15px;
+	background-color: gray;
+}
+
+
+
 @media screen and (max-width: 768px) {
 	.col-1,
 	.col-2,

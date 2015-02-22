@@ -50,8 +50,6 @@ class ProjectController < ApplicationController
 								 .map do |p_type, project|
 									{p_type: p_type, projects: project}
 								 end 
-		
-		puts @project_groups
 	end
 
 	private

@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require knockout/dist/knockout.debug
 //= require markdown/lib/markdown
 //= require knockout-mapping/knockout.mapping
+//= require zepto/zepto
+//= require_tree .

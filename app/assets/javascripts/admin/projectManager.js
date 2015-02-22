@@ -1,32 +1,38 @@
 var gNs = gNs || {};
 
-(function(){
-	function projectManager(){
-		
-		var self = this;
-		var _dataUtility = new gNs.dataUtility();
-		var _vm = null;
+(function() {
+    function projectManager() {
 
-		self.getAndBindNewProject = function(){
-			var viewModel = _dataUtility.getNewProjectJson();
-			_vm = gNs.doffProjectViewModel(viewModel);
+        var self = this;
+        var _dataUtility = new gNs.dataUtility();
+        var _vm = null;
 
-			ko.applyBindings(vm);
-		}
+        self.getAndBindNewProject = function() {
+            _dataUtility.getNewProjectJson(bindModelFromJson);
+        };
 
-		self.getAndBindExistingProject = function(id){
-			var viewModel = _dataUtility.getEditProjectJson(id);
-			_vm = gNs.doffProjectViewModel(viewModel);
+        self.getAndBindExistingProject = function(id) {
+            _dataUtility.getNewProjectJson(id, bindModelFromJson);
 
-			ko.applyBindings(_vm);
-		}
+        };
 
-		self.submitChanges = function(callback){
-			_dataUtility.saveChanges(_vm, callback);
-		}
+        self.submitChanges = function(callback) {
+            _dataUtility.saveChanges(_vm, callback);
+        }
 
-		return self;
-	}
+        function bindModelFromJson(data) {
+            if (data.error) {
+                //log that theres a problem
+            }
 
-	gNs.projectManager = projectManager;
+            var vm = ko.mapping.fromJS(data);
+            _vm = gNs.doffProjectViewModel(vm);
+
+            ko.applyBindings(_vm);
+        }
+
+        return self;
+    };
+
+    gNs.projectManager = projectManager;
 }());
