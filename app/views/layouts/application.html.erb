@@ -7,32 +7,36 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,400' rel='stylesheet' type='text/css'>
 		<%= csrf_meta_tags %>
 	</head>
-	<body>
-		<div id="container">
-			<div class="topnav">
-				<ul>
-					<li><a href=<%= root_url %>>home</a></li>
-					<li><a href="/welcome/about" >about</a></li>
-					<li><a href=<%= portfolio_root_url %>>portfolio</a></li>
-					<!-- <li><a href=<%= shop_root_url %>>shop</a></li> -->
-					<li><a href="/welcome/contact">contact</a></li>
-				</ul>
-				</div><!-- end topnav -->
-				<div id="main">
-					<%= yield %>
-					
-					</div><!-- end main -->
-					<div class="footer">
-						<div class="social">
-							<a class="dribbble" href="https://dribbble.com/alexandradoffing" target="_blank"></a>
-							<a class="twitter" href="https://twitter.com/doffingdesign" target="_blank"></a>
-							<a class="instagram" href="http://instagram.com/doffingdesign" target="_blank"></a>
-							<a class="linkedin" href="https://www.linkedin.com/pub/alexandra-doffing/20/2b3/624" target="_blank"></a>
-							</div><!-- end social -->
-							<p>&copy; 2015 Alexandra Doffing Design, LLC</p>
-							<p>All Rights Reserved</p>
-							</div><!-- end footer -->
-							</div><!-- end container -->
-							
-						</body>
-					</html>
+	<% if controller.controller_name == 'admin' %>
+	<body data-no-turbolink="true" >
+		<% else %>
+		<body>
+	<% end %>
+			<div id="container">
+				<div class="topnav">
+					<ul>
+						<li><a href=<%= root_url %>>home</a></li>
+						<li><a href="/welcome/about" >about</a></li>
+						<li><a href=<%= portfolio_root_url %>>portfolio</a></li>
+						<!-- <li><a href=<%= shop_root_url %>>shop</a></li> -->
+						<li><a href="/welcome/contact">contact</a></li>
+					</ul>
+					</div><!-- end topnav -->
+					<div id="main">
+						<%= yield %>
+						
+						</div><!-- end main -->
+						<div class="footer">
+							<div class="social">
+								<a class="dribbble" href="https://dribbble.com/alexandradoffing" target="_blank"></a>
+								<a class="twitter" href="https://twitter.com/doffingdesign" target="_blank"></a>
+								<a class="instagram" href="http://instagram.com/doffingdesign" target="_blank"></a>
+								<a class="linkedin" href="https://www.linkedin.com/pub/alexandra-doffing/20/2b3/624" target="_blank"></a>
+								</div><!-- end social -->
+								<p>&copy; 2015 Alexandra Doffing Design, LLC</p>
+								<p>All Rights Reserved</p>
+								</div><!-- end footer -->
+								</div><!-- end container -->
+								
+							</body>
+						</html>

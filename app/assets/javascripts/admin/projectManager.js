@@ -12,7 +12,7 @@ var gNs = gNs || {};
         };
 
         self.getAndBindExistingProject = function(id) {
-            _dataUtility.getNewProjectJson(id, bindModelFromJson);
+            _dataUtility.getEditProjectJson(id, bindModelFromJson);
 
         };
 
@@ -25,9 +25,10 @@ var gNs = gNs || {};
                 //log that theres a problem
             }
 
+            console.log(data);
             var vm = ko.mapping.fromJS(data);
-            _vm = gNs.doffProjectViewModel(vm);
 
+            _vm = gNs.doffProjectViewModel(vm);
             ko.applyBindings(_vm);
         }
 

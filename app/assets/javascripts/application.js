@@ -16,5 +16,9 @@
 //= require knockout/dist/knockout.debug
 //= require markdown/lib/markdown
 //= require knockout-mapping/knockout.mapping
-//= require zepto/zepto
+//= require utility/binding
+//= require admin/dataUtility
+//= require admin/doffProjectViewModel
+//= require admin/projectManager
+//= require admin/init
 //= require_tree .

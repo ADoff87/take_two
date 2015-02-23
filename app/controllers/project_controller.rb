@@ -5,13 +5,13 @@ class ProjectController < ApplicationController
 #admin resources
 
 	def edit
-		puts 'im here!'
+	    @project_types = Project.project_types
 		render_to_string(formats: 'json')
 	end
 
 	def new
 		@project = Project.new
-		@project_types = Project.project_types
+
 		render_to_string(formats: 'json')
 	end
 

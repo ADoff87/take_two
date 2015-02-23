@@ -1,12 +1,43 @@
 <script>
-var projId = <%= @id %>
-var pm = new gNs.projectManager();
-
-pm.getAndBindExistingProject(projId);
+var gNs = gNs || {};
+var projectId = <%= @id %>
+$(document).on("page:load ready", gNs.init(projectId));
 </script>
 <div class="edit-form">
-	<label for="projectName">Project Name</label>
-	<input type="text" data-bind="value: $data.project.project_name" />
+	<table>
+		<tbody>
+			<tr>
+				<th>Project Name:</th>
+				<td><input type="text" data-bind="value: $data.project_title, valueUpdate:'afterkeydown'" /></td>
+			</tr>
+			<tr>
+				<th>Sort Order</th>
+				<td><input type="number" data-bind="value: $data.sort_order, valueUpdate:'afterkeydown'" /></td>
+			</tr>
+			<tr>
+				<th>Project Type</th>
+				<td><select data-bind="options: $data.project_type_options, optionsText: 'type', optionsValue: 'value', value: $data.project_type" /></td>
+			</tr>
+			<tr>
+				<th>Project Description (left column Html):</th>
+				<td><textarea data-bind="value: $data.project_markdown, valueUpdate:'afterkeydown'"></textarea></td>
+			</tr>
+		</tbody>
+	</table>
+	
 </div>
 <div class="project-preview">
+	<div>
+		<h1 data-bind="text: $data.project_title"></h1>
+		<div class="left-column" data-bind="markdown: $data.project_markdown">
+		</div>
+		<div class="right-column">
+			<div data-bind="foreach: $data.project_items">
+				<img data-bind="attr: {src: $data.image_url, alt: $data.image_name}" />
+				<p class="caption" data-bind="visible: $data.image_caption !== ''">
+				</p>
+			</div>
+			
+		</div>
+	</div>
 </div>

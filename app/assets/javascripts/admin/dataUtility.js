@@ -34,7 +34,7 @@ var gNs = gNs || {};
                 method: 'GET'
             };
 
-            Zepto.ajax(options);
+            $.ajax(options);
         }
 
         function onError(url) {

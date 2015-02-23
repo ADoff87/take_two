@@ -50,6 +50,18 @@ RSpec.describe ProjectController, type: :controller do
 				end
 			end
 
+			context 'get edit project json' do
+				it 'gets project json of existing project' do
+					p = FactoryGirl.create(:project)
+					json = p.to_json
+
+					get :edit, id: p.id
+
+					expect(response).to be_success
+					expect(response.body).to eq(json)
+				end
+			end
+
 
 		end
 

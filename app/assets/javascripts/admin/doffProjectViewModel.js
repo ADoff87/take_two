@@ -1,32 +1,28 @@
 var gNs = gNs || {};
 
-(function(){
-	function doffProjectViewModel(viewModel){
+(function() {
+    function doffProjectViewModel(viewModel) {
 
-		if(json === ''){
-			throw ApplicationException('json string passed in is blank');
-		}
+        var self = viewModel;
 
-		var self = viewModel;
+        self.selectProjectItem = ko.observable();
 
-		self.selectProjectItem = ko.observable();
+        self.addProjectItem = function(item) {
+            self.project_items.push(item);
+        }
 
-		self.addProjectItem = function(item) {
-			self.project_items.push(item);
-		}
+        self.removeProjectItem = function(item) {
+            self.project_items.remove(item);
+        }
 
-		self.removeProjectItem = function(item) {
-			self.project_items.remove(item);
-		}
-
-		self.setSelectedProjectItem = function(item) {
-			self.setSelectedProjectItem(item);
-		}
+        self.setSelectedProjectItem = function(item) {
+            self.setSelectedProjectItem(item);
+        }
 
 
-		return self;
-	}
+        return self;
+    }
 
 
-	gNs.doffProjectViewModel = doffProjectViewModel;
+    gNs.doffProjectViewModel = doffProjectViewModel;
 }())
