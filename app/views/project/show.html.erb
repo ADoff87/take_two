@@ -7,7 +7,7 @@
 			</div>
 
 			<div class="right-column column">
-				<% @project.project_items.each do |p|  %>
+				<% @project.project_items.where(is_main_image: false).each do |p|  %>
 				<img src="<%= p.image_url %>" />
 
 					<% unless p.image_caption.nil? %>
