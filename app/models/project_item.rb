@@ -3,8 +3,7 @@ class ProjectItem < ActiveRecord::Base
 	@@image_path = '../images/'
 
 	def get_thumb_image_url
-		
-		suffix = "_thumb" if is_main_image
+		suffix = "_thumb" if is_thumb_image
 		url = "#{@@image_path}#{image_name}#{suffix}.jpg"
 
 	end

@@ -10,7 +10,7 @@
 				<% unless @isAdmin.nil? %>
 				<a class="edit-tag" href="/admin/edit/<%= proj.id %>"></a>
 				<% end %>
-				<a href="<%= project_url(proj.id)  %>"><img  src="<%= proj.project_items.where(is_main_image: true).first.image_url  %>" /></a>
+				<a href="<%= project_url(proj.id)  %>"><img  src="<%= proj.project_items.where(is_thumb_image: true).first.image_url  %>" /></a>
 				<a href="<%= project_url(proj.id)  %>"><%= proj.project_title %></a>
 			</div>
 			<% end %>

@@ -8,20 +8,28 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<% if controller.controller_name == 'admin' %>
-	<body data-no-turbolink="true" >
+	<body >
 		<% else %>
 		<body>
-	<% end %>
+			<% end %>
 			<div id="container">
-				<div class="topnav">
-					<ul>
-						<li><a href=<%= root_url %>>home</a></li>
-						<li><a href="/welcome/about" >about</a></li>
-						<li><a href=<%= portfolio_root_url %>>portfolio</a></li>
-						<!-- <li><a href=<%= shop_root_url %>>shop</a></li> -->
-						<li><a href="/welcome/contact">contact</a></li>
-					</ul>
+				<div class="topnav-placeholder nav"></div>
+				<div class="topnav nav">
+					<div class="site-links-icon"></div>
+					<div class="site-links">
+						<ul>
+							<li><a href=<%= root_url %>>home</a></li>
+							<li><a href="/welcome/about" >about</a></li>
+							<li><a href=<%= portfolio_root_url %>>portfolio</a></li>
+							<!-- <li><a href=<%= shop_root_url %>>shop</a></li> -->
+							<li><a href="/welcome/contact">contact</a></li>
+						</ul>
+					</div>
+					
 					</div><!-- end topnav -->
+					<div class="logo-container nav">
+						<img src="/images/logo.png" alt="Doffing Design" />
+					</div>
 					<div id="main">
 						<%= yield %>
 						
