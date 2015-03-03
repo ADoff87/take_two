@@ -10,7 +10,7 @@
 				<% unless @isAdmin.nil? %>
 				<a class="edit-tag" href="/admin/edit/<%= proj.id %>"></a>
 				<% end %>
-				<a href="<%= project_url(proj.id)  %>"><img  src="<%= proj.project_items.where(is_thumb_image: true).first.image_url  %>" /></a>
+				<a href="<%= project_url(proj.id) %>"><img src="<%= proj.thumbnail_image %>" /></a>
 				<a href="<%= project_url(proj.id)  %>"><%= proj.project_title %></a>
 			</div>
 			<% end %>
@@ -18,7 +18,7 @@
 		<% end %>
 		<% unless @isAdmin.nil? %>
 		<p>
-		Dis is an admin block. This should show at admin/index
+			Dis is an admin block. This should show at admin/index
 		</p>
 		<% end %>
 	</div>
