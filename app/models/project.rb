@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
 
 	validates :project_title, presence: true
 
+	accepts_nested_attributes_for :project_items
+
 	def thumbnail_image
 		project_items.where(is_thumb_image: true).first.image_url
 	end

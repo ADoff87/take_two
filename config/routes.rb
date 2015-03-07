@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   #get ':controller(/:action)'
-  get 'project/:id' => 'project#show', as: :project
+   get 'project/:id' => 'project#show', as: :project
   get 'project/' => 'project#index', as: :portfolio_root
   get 'shop/' => 'shop#index', as: :shop_root
   get 'api/admin/project/edit/:id'=> 'project#edit'
   get 'api/admin/project/:action' => 'project#:action'
 
-  put 'api/admin/project/update' => 'project#update'
+  post 'api/admin/project/update' => 'project#update'
+  post 'api/admin/project/create' => 'project#create'
   get 'admin/edit/:id' => 'admin#edit'
 
   get ':controller/:action'

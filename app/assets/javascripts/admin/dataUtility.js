@@ -20,10 +20,15 @@ var gNs = gNs || {};
 
 
 
-        self.saveChanges = function(vm) {
+        self.saveChanges = function(vm, redirectCallback) {
             var json = ko.mapping.toJS(vm);
-            var isNew = json.project;
-            //api call update, create
+            var isNew = !(json.id > 0);
+
+            var url = isNew ? '/api/admin/project/create' : '/api/admin/project/update';
+
+            postDataByUrl(url, {
+                project: json
+            }, redirectCallback);
         };
 
         function getDataByUrl(url, callback) {
@@ -33,6 +38,18 @@ var gNs = gNs || {};
                 error: onError(url),
                 method: 'GET'
             };
+
+            $.ajax(options);
+        }
+
+        function postDataByUrl(url, data, callback) {
+            var options = {
+                url: url,
+                success: callback,
+                method: 'POST',
+                error: onError(url),
+                data: data
+            }
 
             $.ajax(options);
         }

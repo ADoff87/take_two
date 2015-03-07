@@ -19,8 +19,20 @@ var gNs = gNs || {};
             self.setSelectedProjectItem(item);
         }
 
+        massageProjectItem(self.project_items())
 
         return self;
+    }
+
+    function massageProjectItem(projectItems) {
+        projectItems.forEach(function(item, idx) {
+            item.projectItemName = ko.computed(function() {
+                var caption = item.image_caption();
+                var name = caption == undefined ? "Item " + idx : caption;
+
+                return name;
+            })
+        })
     }
 
 

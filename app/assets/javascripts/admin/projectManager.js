@@ -5,7 +5,7 @@ var gNs = gNs || {};
 
         var self = this;
         var _dataUtility = new gNs.dataUtility();
-        var _vm = null;
+        self.project = null;
 
         self.getAndBindNewProject = function() {
             _dataUtility.getNewProjectJson(bindModelFromJson);
@@ -16,8 +16,10 @@ var gNs = gNs || {};
 
         };
 
-        self.submitChanges = function(callback) {
-            _dataUtility.saveChanges(_vm, callback);
+        self.submitChanges = function() {
+            _dataUtility.saveChanges(self.project, function(data) {
+                console.log(data);
+            });
         }
 
         function bindModelFromJson(data) {
@@ -28,8 +30,8 @@ var gNs = gNs || {};
             console.log(data);
             var vm = ko.mapping.fromJS(data);
 
-            _vm = gNs.doffProjectViewModel(vm);
-            ko.applyBindings(_vm);
+            self.project = gNs.doffProjectViewModel(vm);
+            ko.applyBindings(self);
         }
 
         return self;
