@@ -28,6 +28,7 @@ class ProjectController < ApplicationController
 
 
 	def update
+		debugger
 		if @project.update(project_params) 
 			render status: 'updated'
 		else
