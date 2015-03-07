@@ -28,8 +28,14 @@ class ProjectController < ApplicationController
 
 
 	def update
-		if @project.update(project_params) 
-			render status: 'updated'
+		id = params[:project][:id]
+		@project = Project.find_by_id id
+
+		project_to_update = project_params
+		project_to_update[:project_type] = project_params[:project_type].to_i
+
+		if @project.update(project_to_update) 
+			render json: {status: 'updated', id: @project.id }
 		else
 			render json: @project.errors, status: :unprocessable_entity
 		end
@@ -70,6 +76,6 @@ class ProjectController < ApplicationController
 	end
 
 	def project_params
-		params[:project]
+		params.require(:project).permit(:id, :project_title, :sort_order, :project_type, :project_markdown)
 	end
 end
