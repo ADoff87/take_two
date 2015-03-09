@@ -24,9 +24,23 @@ $(document).on("page:load ready", gNs.init(projectId));
 			</tr>
 		</tbody>
 	</table>
-	<h1>Project Items</h1>
+	<h1>Add/Edit Project Items</h1>
+	<button type="button" data-bind="click: $data.project.addProjectItem">Add Item</button>
 	<div class="project-item-section" data-bind="foreach: $data.project.project_items">
-		<h3 data-bind="text: $data.projectItemName"></h3>
+		<h3 data-bind="text: $data.projectItemDisplayName, click: $parent.project.setSelectedProjectItem"></h3>
+	</div>
+	<div data-bind="visible: $data.project.isSelected()">
+		<h3>Edit Project Item</h3>
+		<label>Image Name (what's displayed on hover)</label>
+		<input  type="text" data-bind="value: $data.project.selectedProjectItem().image_name"/>
+		<br/>
+		<label>Image Caption (what's displayed underneath photo)</label>
+		<input  type="text" data-bind="value: $data.project.selectedProjectItem().image_caption" />
+		<br/>
+		<label>Mark as Thumb Image</label>
+		<input  type="checkbox" data-bind="checked: $data.project.selectedProjectItem().is_thumb_image"/>
+		<br/>
+		<label>Placeholder for File Upload?</label>
 	</div>
 	<button type="button" data-bind="click: $data.submitChanges">Save Changes</button>
 	

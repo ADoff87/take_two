@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
 
 	validates :project_title, presence: true
 
+	#this doesn't work in strong parameters
 	accepts_nested_attributes_for :project_items
 
 	def thumbnail_image

@@ -18,19 +18,6 @@ var gNs = gNs || {};
             getDataByUrl('/api/admin/project/edit/' + id, callback)
         };
 
-
-
-        self.saveChanges = function(vm, redirectCallback) {
-            var json = ko.mapping.toJS(vm);
-            var isNew = !(json.id > 0);
-
-            var url = isNew ? '/api/admin/project/create' : '/api/admin/project/update';
-
-            postDataByUrl(url, {
-                project: json
-            }, redirectCallback);
-        };
-
         function getDataByUrl(url, callback) {
             var options = {
                 url: url,
@@ -42,7 +29,7 @@ var gNs = gNs || {};
             $.ajax(options);
         }
 
-        function postDataByUrl(url, data, callback) {
+        self.postDataByUrl = function(url, data, callback) {
             var options = {
                 url: url,
                 success: callback,

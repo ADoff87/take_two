@@ -17,18 +17,36 @@ var gNs = gNs || {};
         };
 
         self.submitChanges = function() {
-            _dataUtility.saveChanges(self.project, function(data) {
+            /*
+            var json = ko.mapping.toJS(vm);
+            var isNew = !(json.id > 0);
+
+            var url = isNew ? '/api/admin/project/create' : '/api/admin/project/update';
+            */
+            var vm = ko.mapping.toJS(self.project);
+
+            var isNew = !(vm.id > 0);
+            var url = isNew ? '/api/admin/project/create' : '/api/admin/project/update';
+
+            var jsData = {
+                project: vm,
+            }
+
+            _dataUtility.postDataByUrl(url,jsData,function(data){
                 console.log(data);
-            });
+            })
         }
 
         function bindModelFromJson(data) {
             if (data.error) {
                 //log that theres a problem
+                alert('error!')
             }
 
             console.log(data);
             var vm = ko.mapping.fromJS(data);
+
+
 
             self.project = gNs.doffProjectViewModel(vm);
             ko.applyBindings(self);

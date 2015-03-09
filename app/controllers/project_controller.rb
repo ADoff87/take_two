@@ -27,11 +27,30 @@ class ProjectController < ApplicationController
 
 
 
+	
 	def update
-		id = params[:project][:id]
+		id = project_params[:id]
 		@project = Project.find_by_id id
 
 		project_to_update = project_params
+
+		project_items = project_to_update.delete("project_items").values #pulls out of array
+
+		project_items.each do |pi|
+			id = pi[:id]
+
+debugger
+
+			unless(id.nil?)
+				project_item = ProjectItem.find_by_id id
+				project_item.update(pi)
+			else
+				project_item = ProjectItem.new(pi);
+				project_item.save
+			end
+		end 
+
+
 		project_to_update[:project_type] = project_params[:project_type].to_i
 
 		if @project.update(project_to_update) 
@@ -76,6 +95,12 @@ class ProjectController < ApplicationController
 	end
 
 	def project_params
-		params.require(:project).permit(:id, :project_title, :sort_order, :project_type, :project_markdown)
+		params.require(:project).permit(:id, :project_title, :sort_order, 
+			:project_type, :project_markdown, 
+			:project_items => [:id, :image_url, :image_name, 
+				:image_caption,
+				:is_thumb_image,
+				:project_id])
 	end
+
 end
