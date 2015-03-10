@@ -10,7 +10,7 @@ var gNs = gNs || {};
         var projectId = viewModel.id();
 
         //as it comes from server, but blank observables
-        var projectItemTemplate = prepAndClone(viewModel.project_items()[0]); 
+        var projectItemTemplate = prepAndClone(viewModel.project_items()[0]);
 
         self.addProjectItem = function() {
             var clonedObject = clone(projectItemTemplate);
@@ -29,6 +29,14 @@ var gNs = gNs || {};
             self.isSelected(true)
         }
 
+        self.projectViewItems = ko.computed(function() {
+            var nonThumbImages = self.project_items().filter(function(item) {
+                return !(item.is_thumb_image())
+            });
+
+            return nonThumbImages;
+        });
+
         finalizeProjectItems(self.project_items())
 
 
@@ -39,31 +47,31 @@ var gNs = gNs || {};
         projectItems.forEach(processProjectItem);
     }
 
-    function processProjectItem(projectItem){
-            projectItem.projectItemDisplayName = ko.computed(function() {
-                var imageName = projectItem.image_name() || projectItem.image_url();
-                var name = (imageName === "" || imageName == undefined) ? "(No Item Name)": imageName;
+    function processProjectItem(projectItem) {
+        projectItem.projectItemDisplayName = ko.computed(function() {
+            var imageName = projectItem.image_name() || projectItem.image_url();
+            var name = (imageName === "" || imageName == undefined) ? "(No Item Name)" : imageName;
 
-                return name;
-            })
+            return name;
+        })
     }
 
-    function clone(obj){
+    function clone(obj) {
         var newObj = ko.mapping.fromJS(ko.mapping.toJS(obj));
 
         return newObj;
     }
 
-    function prepAndClone(obj){
+    function prepAndClone(obj) {
         var newItem = clone(obj);
 
-        for(var name in newItem){
+        for (var name in newItem) {
             var prop = newItem[name];
-            if(newItem.hasOwnProperty(name) && ko.isObservable(prop)){
+            if (newItem.hasOwnProperty(name) && ko.isObservable(prop)) {
                 prop('');
             }
         }
-        
+
         delete newItem.id;
         newItem.project_id(projectId);
 

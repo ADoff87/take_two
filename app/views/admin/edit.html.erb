@@ -51,7 +51,7 @@ $(document).on("page:load ready", gNs.init(projectId));
 		<div class="left-column" data-bind="markdown: $data.project.project_markdown">
 		</div>
 		<div class="right-column">
-			<div data-bind="foreach: $data.project.project_items">
+			<div data-bind="foreach: $data.project.projectViewItems">
 				<img data-bind="attr: {src: $data.image_url, alt: $data.image_name}" />
 				<p class="caption" data-bind="visible: $data.image_caption !== ''">
 				</p>
