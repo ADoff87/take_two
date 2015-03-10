@@ -3,7 +3,7 @@ var gNs = gNs || {};
 (function() {
     function dataUtility() {
         var self = this;
-        var _dialog;
+        var _dialog = new gNs.dialog();
 
         self.getNewProjectJson = function(callback) {
 
@@ -48,6 +48,7 @@ var gNs = gNs || {};
                 console.log(result);
                 console.log(text);
                 console.log("Error request to " + url);
+                _dialog.showError("There was an error saving the Project")
             }
         }
 

@@ -16,6 +16,7 @@
 //= require knockout/dist/knockout.debug
 //= require markdown/lib/markdown
 //= require knockout-mapping/knockout.mapping
+//= require toastr/toastr
 //= require utility/binding
 //= require admin/dataUtility
 //= require admin/doffProjectViewModel

@@ -39,8 +39,6 @@ class ProjectController < ApplicationController
 		project_items.each do |pi|
 			id = pi[:id]
 
-debugger
-
 			unless(id.nil?)
 				project_item = ProjectItem.find_by_id id
 				project_item.update(pi)

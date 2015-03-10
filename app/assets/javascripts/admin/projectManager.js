@@ -5,6 +5,7 @@ var gNs = gNs || {};
 
         var self = this;
         var _dataUtility = new gNs.dataUtility();
+        var _dialog = new gNs.dialog();
         self.project = null;
 
         self.getAndBindNewProject = function() {
@@ -32,8 +33,8 @@ var gNs = gNs || {};
                 project: vm,
             }
 
-            _dataUtility.postDataByUrl(url,jsData,function(data){
-                console.log(data);
+            _dataUtility.postDataByUrl(url, jsData, function(data) {
+                _dialog.showSuccess("Update Successful")
             })
         }
 
