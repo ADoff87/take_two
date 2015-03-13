@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Alexandra Doffing</title>
+		<title>Alexandra Doffing Design</title>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,400' rel='stylesheet' type='text/css'>
 		<%= csrf_meta_tags %>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<% if controller.controller_name == 'admin' %>
 	<body >
@@ -19,8 +20,8 @@
 					<div class="site-links">
 						<ul>
 							<li><a href=<%= root_url %>>home</a></li>
-							<li><a href="/welcome/about" >about</a></li>
-							<li><a href=<%= portfolio_root_url %>>portfolio</a></li>
+							<li><a href="/welcome/about" >about</a></li><!-- 
+							<li><a href=<%= portfolio_root_url %>>portfolio</a></li> -->
 							<!-- <li><a href=<%= shop_root_url %>>shop</a></li> -->
 							<li><a href="/welcome/contact">contact</a></li>
 						</ul>
@@ -28,7 +29,7 @@
 					
 					</div><!-- end topnav -->
 					<div class="logo-container nav">
-						<img src="/images/logo.png" alt="Doffing Design" />
+						<a href=<%= root_url %> ><img src="/images/logo.png" alt="Doffing Design" /></a>
 					</div>
 					<div id="main">
 						<%= yield %>

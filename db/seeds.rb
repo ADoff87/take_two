@@ -8,7 +8,7 @@
 
 
 #dev seed-values
-p = Project.new(project_title: "Flowers in her Hair", project_markdown:"##Graphite Portraits\n\nPristine femininity and inane detail: a little ode to beauty for its own sake, without much regard for concept. When I've no other projects, inevitably I find myself drawing flowers, or women, or women decked out in flowers. The prettier their hair, the better.\n\nMaterials: *4B Graphite, Strathmore Drawing Paper*\n\n###Purchase Info\n\nThese will be available shortly as art prints from Society6. Please [inquire](mailto:doffingdesign@gmail.com) for licensing information.", sort_order: 2, project_type: 0)
+p = Project.new(project_title: "Flowers in her Hair", project_markdown:"##Graphite Portraits\n\nPristine femininity and inane detail: a little ode to beauty for its own sake, without much regard for concept. When I've no other projects, inevitably I find myself drawing flowers, or women, or women decked out in flowers. The prettier their hair, the better.\n\nMaterials: *4B Graphite, Strathmore Drawing Paper*\n\n###Purchase Info\n\nThese will be available shortly as art prints from Society6. Please [inquire](mailto:doffingdesign@gmail.com) for licensing information.", sort_order: 1, project_type: 0)
 
 
 #project items
@@ -34,5 +34,25 @@ ProjectItem.create(image_url: "/images/CMBN_ColumbiaSC_1200.jpg", image_name:"",
 ProjectItem.create(image_url: "/images/CMBN_DallasTX_1200.jpg", image_name:"", is_thumb_image: false, project: p2)
 ProjectItem.create(image_url: "/images/CMBN_OklahomaCityOK_1200.jpg", image_name:"", is_thumb_image: false, project: p2)
 ProjectItem.create(image_url: "/images/CMBN_TwinCitiesMN_1200.jpg", image_name:"", is_thumb_image: false, project: p2)
+
+p3 = Project.new(project_title: "Simple Patterns", project_markdown:"", sort_order: 3, project_type: 2)
+ProjectItem.create(image_url: "/images/Thumb_SimplePatterns_RetroFloral_800 copy.png",image_name:"",is_thumb_image:true, project: p3)
+ProjectItem.create(image_url: "/images/1_SimplePatterns_RetroFloral_800.png",image_name:"", project: p3)
+ProjectItem.create(image_url: "/images/2_SimplePatterns_ZigZag_800.png",image_name:"", project: p3)
+ProjectItem.create(image_url: "/images/3_SimplePatterns_SwissCross_800.png",image_name:"", project: p3)
+ProjectItem.create(image_url: "/images/4_SimplePatterns_Woodgrain_800.png",image_name:"", project: p3)
+
+p4 = Project.new(project_title: "Sketchbook", project_markdown:"", sort_order: 4, project_type: 0)
+ProjectItem.create(image_url: "/images/Thumb_Sketchbook_Auryn_800.jpg",image_name:"",is_thumb_image:true, project: p4)
+ProjectItem.create(image_url: "/images/1_Sketchbook_BobDylan_800.jpg",image_name:"", project: p4)
+ProjectItem.create(image_url: "/images/2_Sketchbook_Auryn_800.jpg",image_name:"", project: p4)
+ProjectItem.create(image_url: "/images/3_Sketchbook_SleighBells_800.jpg",image_name:"", project: p4)
+ProjectItem.create(image_url: "/images/4_Sketchbook_Mpls_800.jpg",image_name:"", project: p4)
+
+p5 = Project.new(project_title: "Twin Cities", project_markdown:"", sort_order: 5, project_type: 2)
+ProjectItem.create(image_url: "/images/Thumb_TwinCities_Minneapolis_800.png",image_name:"",is_thumb_image:true, project: p5)
+ProjectItem.create(image_url: "/images/1_TwinCities_Minneapolis_800.png",image_name:"", project: p5)
+ProjectItem.create(image_url: "/images/2_TwinCities_StPaul_800.png",image_name:"", project: p5)
+
 
 

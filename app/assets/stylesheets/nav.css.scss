@@ -60,7 +60,7 @@ div.site-links-icon {
 
 .topnav a, .topnav a:visited {
 	font-family: arial, sans-serif;
-	font-size: 90%;
+	font-size: 70%;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -82,7 +82,7 @@ div.site-links-icon {
 		display: 	none;
 		margin: auto;
 		width: 300px;
-		right: 15px;
+		right: 2px;
 		top: 60px;
 	}
 
@@ -97,6 +97,14 @@ div.site-links-icon {
 		border: 1px black solid;
 		display: block;
 		background-color: white;
+	}
+
+	.topnav > div.site-links li:first-child{
+		border-radius: 3px 3px 0 0;
+	}
+
+	.topnav > div.site-links li:last-child{
+		border-radius: 0 0 3px 3px;
 	}
 
 	div.site-links-icon {
